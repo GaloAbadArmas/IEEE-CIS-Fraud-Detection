@@ -135,8 +135,6 @@ id_12 - id_38
 | Train | (590,540, 434) |
 | Test | (506,691, 433) |
 
-### Interpretation
-
 El dataset presenta una **alta dimensionalidad**, con más de 400 variables disponibles para modelado.
 
 Además, no todas las transacciones contienen información de identidad, generando una importante presencia de datos faltantes que deberán ser tratados en etapas posteriores.
@@ -152,8 +150,6 @@ Distribución de la variable objetivo `isFraud`:
 | No Fraud | 96.5% |
 | Fraud | 3.5% |
 
-### Interpretation
-
 El dataset presenta un **desbalanceo severo de clases**, típico en escenarios reales de fraude financiero.
 
 Esto implica que métricas como **accuracy pueden ser engañosas**, ya que un modelo podría obtener alta precisión global prediciendo únicamente transacciones legítimas.
@@ -167,9 +163,6 @@ Por esta razón, el proyecto prioriza métricas como:
 
 especialmente sobre la clase minoritaria (*fraude*).
 
-### Conclusion
-
-> El fuerte desbalanceo representa uno de los principales desafíos del problema y condiciona la estrategia de modelado.
 
 ---
 
@@ -189,9 +182,6 @@ La gran cantidad de valores faltantes sugiere:
 
 En fraude, la ausencia de datos también puede representar señal predictiva.
 
-### Conclusion
-
-> El tratamiento de missing values constituye un paso crítico dentro del pipeline de preprocesamiento.
 
 ---
 
@@ -199,13 +189,8 @@ En fraude, la ausencia de datos también puede representar señal predictiva.
 
 Se identificaron múltiples variables donde más del **95% de los registros contienen el mismo valor**.
 
-### Interpretation
-
 Estas variables presentan baja variabilidad y potencialmente menor capacidad predictiva. Sin embargo, dado el contexto de fraude, no se eliminarán automáticamente sin evaluación previa.
 
-### Conclusion
-
-> Variables aparentemente poco informativas pueden contener señales relevantes en eventos minoritarios como fraude.
 
 ---
 
@@ -217,9 +202,6 @@ Se detectaron inconsistencias en nombres de columnas entre train y test (`id_01`
 
 Este hallazgo representa un posible riesgo de incompatibilidad durante el modelado y requiere estandarización previa.
 
-### Conclusion
-
-> Fue necesario garantizar consistencia estructural entre datasets antes del entrenamiento de modelos.
 
 ---
 
