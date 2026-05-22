@@ -985,8 +985,6 @@ Sin embargo solo detectó: **24% de los fraudes reales**
 
 # Modelo XGBoost
 
-## Qué se hizo
-
 Se entrenó un modelo **XGBoost**, ampliamente utilizado en problemas tabulares y fraude financiero.
 
 ### Resultados
@@ -1030,8 +1028,6 @@ XGBoost mostró el mejor equilibrio entre sensibilidad al fraude y capacidad pre
 
 # Optimización de Threshold
 
-## Qué se hizo
-
 Se evaluó el impacto de distintos umbrales de clasificación sobre precision y recall.
 
 ### Resultados observados
@@ -1064,8 +1060,6 @@ La elección del threshold depende del objetivo de negocio:
 ---
 
 # Selección de Variables con L1 Regularization
-
-## Qué se hizo
 
 Se aplicó **regularización L1 (Lasso)** para seleccionar variables relevantes.
 
@@ -1103,8 +1097,6 @@ No hubo una reducción agresiva de dimensionalidad.
 ---
 
 # Random Forest con Variables Seleccionadas
-
-## Qué se hizo
 
 Se reentrenó Random Forest utilizando únicamente las variables seleccionadas por L1.
 
@@ -1184,8 +1176,6 @@ Más allá de accuracy, ya que esta métrica puede resultar engañosa en problem
 ---
 
 # Comparación por ROC-AUC
-
-## Qué se hizo
 
 Se comparó la capacidad de separación entre fraude y no fraude utilizando **ROC-AUC**, una métrica especialmente útil en datasets desbalanceados.
 
