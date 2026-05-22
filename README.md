@@ -26,16 +26,16 @@ Se utilizó el dataset **IEEE-CIS Fraud Detection**, compuesto por información 
 
 El dataset incluye:
 
-- información de pago,
-- datos del dispositivo,
-- comportamiento transaccional,
-- atributos temporales,
-- relaciones entre entidades,
-- e indicadores de riesgo anonimizados.
+- Información de pago
+- Datos del dispositivo
+- Comportamiento transaccional
+- Atributos temporales
+- Relaciones entre entidades
+- Indicadores de riesgo anonimizados
 
 ---
 
-# Data Understanding
+# 01. Data Understanding
 
 ## Objetivo
 
@@ -43,13 +43,13 @@ El objetivo de esta fase fue comprender la estructura del dataset, evaluar la ca
 
 Durante esta etapa se analizaron:
 
-- dimensiones del dataset,
-- tipos de variables,
-- distribución de fraude,
-- consistencia entre datasets,
-- valores faltantes,
-- variables dominadas,
-- y características generales de los datos.
+- Dimensiones del dataset
+- Tipos de variables
+- Distribución de fraude
+- Consistencia entre datasets
+- Valores faltantes
+- Variables dominadas
+- Características generales de los datos
 
 ---
 
@@ -95,17 +95,15 @@ La tabla de identidad contiene información del entorno digital asociado a las t
 
 Incluye:
 
-- información de red,
-- proveedor de internet (*ISP*),
-- uso de proxy,
-- huella digital del dispositivo,
-- navegador,
-- sistema operativo,
-- versión del software.
+- Información de red
+- Proveedor de internet (*ISP*)
+- Uso de proxy
+- Huella digital del dispositivo
+- Navegador
+- Sistema operativo
+- Versión del software
 
-Estas variables fueron recopiladas por el sistema antifraude de **Vesta** y socios de seguridad digital.
-
-> Los nombres reales de varias variables se encuentran anonimizados por privacidad y acuerdos contractuales.
+Estas variables fueron recopiladas por el sistema antifraude de **Vesta** y socios de seguridad digital. Los nombres reales de varias variables se encuentran anonimizados por privacidad y acuerdos contractuales.
 
 ### Identity Categorical Features
 
@@ -174,9 +172,9 @@ Algunas variables presentan más del **90% de missing values**.
 
 La gran cantidad de valores faltantes sugiere:
 
-- baja cobertura de ciertas variables,
-- información no disponible para todas las transacciones,
-- necesidad de imputación o selección de variables.
+- Baja cobertura de ciertas variables
+- Información no disponible para todas las transacciones
+- Necesidad de imputación o selección de variables
 
 En fraude, la ausencia de datos también puede representar señal predictiva.
 
@@ -198,7 +196,7 @@ Se detectaron inconsistencias en nombres de columnas entre train y test (`id_01`
 
 
 ---
-Puedes ver el data understandig [en este archivo](./01_data_understanding).
+Puedes ver el data understandig [en este archivo](./01_data_understanding.ipynb).
 ---
 # Tech Stack
 
@@ -221,14 +219,14 @@ El objetivo de esta etapa fue explorar el comportamiento de las transacciones fr
 
 Durante esta fase se analizaron:
 
-- distribución del monto de transacción,
-- fraude por tipo de producto,
-- fraude por red de tarjeta,
-- dominios de correo electrónico,
-- patrones temporales,
-- variables de coincidencia (`M1-M9`),
-- valores faltantes como señal predictiva,
-- y correlaciones con la variable objetivo.
+- Distribución del monto de transacción
+- Fraude por tipo de producto
+- Fraude por red de tarjeta
+- Dominios de correo electrónico
+- Patrones temporales
+- Variables de coincidencia (`M1-M9`)
+- Valores faltantes como señal predictiva
+- Correlaciones con la variable objetivo
 
 ---
 
@@ -300,7 +298,6 @@ Se evaluó el porcentaje de fraude según la red de tarjeta (`card4`).
 | American Express | 8,328 |
 | Discover | 6,651 |
 
-## Interpretación
 
 La red `Discover` presenta la mayor tasa de fraude observada, mientras que `American Express` muestra el menor porcentaje.
 
@@ -308,7 +305,7 @@ No obstante, es importante considerar que algunas categorías poseen menor canti
 
 Aun así, las transacciones asociadas a discover presentan una mayor probabilidad observada de fraude, posiblemente relacionada con características del tipo de comercio, perfil de usuario, región o interacción con otras variables del sistema.
 
-> El tipo de tarjeta muestra diferencias en la incidencia de fraude y podría aportar información predictiva relevante, aunque debe interpretarse considerando el volumen de transacciones de cada categoría.
+El tipo de tarjeta muestra diferencias en la incidencia de fraude y podría aportar información predictiva relevante, aunque debe interpretarse considerando el volumen de transacciones de cada categoría.
 
 ---
 
@@ -329,7 +326,6 @@ Se estudió la tasa de fraude según el dominio de correo electrónico del compr
 | hotmail.com | 5.30% |
 | gmail.com | 4.35% |
 
-## Interpretación
 
 Se observan diferencias relevantes entre dominios de correo.
 
@@ -435,7 +431,7 @@ Sin embargo, múltiples variables `Vxxx` presentan correlaciones moderadamente a
 
 # Conclusión General del EDA
 
-> El análisis exploratorio permitió identificar patrones relevantes asociados al fraude. Variables como `ProductCD`, `card4`, dominios de correo electrónico y atributos temporales mostraron diferencias entre transacciones legítimas y fraudulentas. Asimismo, la ausencia de información del dispositivo emergió como una posible señal predictiva. Estos hallazgos respaldan la necesidad de un pipeline de feature engineering orientado a capturar relaciones temporales, categóricas y comportamentales para mejorar el desempeño de los modelos de detección de fraude.
+El análisis exploratorio permitió identificar patrones relevantes asociados al fraude. Variables como `ProductCD`, `card4`, dominios de correo electrónico y atributos temporales mostraron diferencias entre transacciones legítimas y fraudulentas. Asimismo, la ausencia de información del dispositivo emergió como una posible señal predictiva. Estos hallazgos respaldan la necesidad de un pipeline de feature engineering orientado a capturar relaciones temporales, categóricas y comportamentales para mejorar el desempeño de los modelos de detección de fraude.
 
 ---
 Puedes ver el análisis técnico detallado [en este archivo](./02_eda_fraud_detection.ipynb).
@@ -449,13 +445,13 @@ El objetivo de esta etapa fue preparar el dataset para el entrenamiento de model
 
 Durante esta fase se realizaron:
 
-- análisis de tipos de variables,
-- evaluación de valores faltantes,
-- eliminación de variables con missing extremo,
-- creación de señales derivadas de missing values,
-- imputación de datos,
-- codificación de variables categóricas,
-- y división temporal de entrenamiento y validación.
+- Análisis de tipos de variables
+- Evaluación de valores faltantes
+- Eliminación de variables con missing extremo
+- Creación de señales derivadas de missing values
+- Imputación de datos
+- Codificación de variables categóricas
+- División temporal de entrenamiento y validación
 
 ---
 
@@ -580,9 +576,9 @@ DeviceType
 
 Las variables con muchas categorías presentan un reto importante:
 
-- One-Hot Encoding puede generar demasiadas columnas,
-- aumentar dimensionalidad,
-- y provocar sparsity.
+- One-Hot Encoding puede generar demasiadas columnas
+- Aumentar dimensionalidad,
+- Provocar sparsity.
 
 Por ello se definió una estrategia diferenciada según cardinalidad. Se separaron variables categóricas de alta y baja cardinalidad para aplicar técnicas de codificación más eficientes y evitar explosión dimensional.
 
@@ -610,8 +606,6 @@ El dataset fue ordenado utilizando `TransactionDT` y posteriormente dividido de 
 |----------|-------------|
 | Train | 3.51% |
 | Validation | 3.44% |
-
-## Interpretación
 
 La división temporal evita **data leakage temporal**, una práctica especialmente importante en fraude financiero.
 
@@ -683,9 +677,9 @@ Frequency Encoding permite representar categorías mediante su frecuencia de apa
 
 Esta estrategia:
 
-- reduce dimensionalidad,
-- evita miles de columnas adicionales,
-- y conserva información estadística útil.
+- Reduce dimensionalidad
+- Evita miles de columnas adicionales
+- Conserva información estadística útil
 
 ---
 
@@ -732,8 +726,10 @@ La codificación permitió convertir variables categóricas en un formato compat
 
 # Conclusión General del Preprocesamiento
 
-> La etapa de preprocesamiento permitió transformar un dataset complejo y altamente incompleto en un conjunto de datos consistente y apto para Machine Learning. Se eliminaron variables con baja utilidad, se preservó la señal de missing values, se aplicaron estrategias diferenciadas de codificación categórica y se implementó una validación temporal para evitar leakage. Como resultado, se obtuvo un dataset limpio, sin valores faltantes y listo para modelado predictivo.
+La etapa de preprocesamiento permitió transformar un dataset complejo y altamente incompleto en un conjunto de datos consistente y apto para Machine Learning. Se eliminaron variables con baja utilidad, se preservó la señal de missing values, se aplicaron estrategias diferenciadas de codificación categórica y se implementó una validación temporal para evitar leakage. Como resultado, se obtuvo un dataset limpio, sin valores faltantes y listo para modelado predictivo.
 
+---
+Puedes ver el procesamiento de datos [en este archivo](./03_preprocessing.ipynb).
 ---
 
 # 04. Modelado
@@ -744,11 +740,11 @@ El objetivo de esta etapa fue construir y evaluar modelos para establecer un pun
 
 Se compararon distintos enfoques de Machine Learning con el fin de:
 
-- medir capacidad predictiva,
-- evaluar sensibilidad al fraude,
-- comparar métricas relevantes,
-- analizar el impacto de reducción de dimensionalidad,
-- y establecer una línea base antes de optimización avanzada.
+- Medir capacidad predictiva
+- Evaluar sensibilidad al fraude
+- Comparar métricas relevantes
+- Analizar el impacto de reducción de dimensionalidad
+- Establecer una línea base antes de optimización avanzada
 
 Debido al fuerte desbalanceo del dataset, se priorizó la evaluación mediante:
 
@@ -811,25 +807,21 @@ Hallazgos relevantes:
 
 ### Recall alto en fraude (0.69)
 
-El modelo logra detectar aproximadamente:
-
-> **69% de los fraudes reales**
+El modelo logra detectar aproximadamente: **69% de los fraudes reales**
 
 Esto es positivo en un contexto financiero, donde perder fraudes (*false negatives*) suele ser costoso.
 
 ### Precision baja (0.18)
 
-Sin embargo, solo:
-
-> **18% de las alertas de fraude realmente eran fraude**
+Sin embargo, solo: **18% de las alertas de fraude realmente eran fraude**
 
 Esto implica una gran cantidad de **falsos positivos**.
 
 En términos de negocio:
 
-- más revisiones manuales,
-- fricción para usuarios legítimos,
-- mayor costo operativo.
+- Más revisiones manuales
+- Fricción para usuarios legítimos
+- Mayor costo operativo
 
  El Random Forest mostró una buena capacidad de detección de fraude, priorizando recall sobre precision. Aunque genera muchos falsos positivos, representa una base sólida para un sistema antifraude.
 
@@ -868,9 +860,9 @@ aparecen como las más influyentes.
 
 Esto sugiere que:
 
-- las variables generadas por **Vesta** contienen fuerte señal predictiva,
-- variables de comportamiento transaccional tienen alto valor,
-- y relaciones históricas parecen importantes para detectar fraude.
+- Las variables generadas por **Vesta** contienen fuerte señal predictiva
+- Variables de comportamiento transaccional tienen alto valor
+- Relaciones históricas parecen importantes para detectar fraude
 
 ---
 
@@ -922,9 +914,9 @@ La regresión logística consiguió un **recall superior (0.73)** respecto al Ra
 
 Sin embargo:
 
-- precision extremadamente baja,
-- demasiados falsos positivos,
-- menor capacidad de separación global.
+- Precision extremadamente baja
+- Demasiados falsos positivos
+- Menor capacidad de separación global
 
 Aunque es un modelo interpretable, parece limitado para capturar relaciones complejas presentes en fraude.
 
@@ -962,14 +954,9 @@ Se entrenó el modelo **Quadratic Discriminant Analysis** utilizando un subconju
 | Recall (Fraude) | 0.29 |
 | F1-score | 0.26 |
 
-## Interpretación
-
 Aunque QDA ofrece mayor flexibilidad al modelar relaciones no lineales mediante matrices de covarianza independientes por clase, presentó el desempeño más bajo entre los modelos evaluados. Esto puede explicarse por la alta dimensionalidad y complejidad del dataset, lo cual dificulta una estimación robusta de covarianzas y afecta su capacidad de generalización.
 
-Esto significa que el modelo:
-
-- comete menos falsas alarmas,
-- pero deja escapar más fraudes reales.
+Esto significa que el modelo comete menos falsas alarmas, pero deja escapar más fraudes reales.
 
 En fraude financiero, esta pérdida de recall suele ser problemática.
 
@@ -989,15 +976,9 @@ Se entrenó el modelo **Quadratic Discriminant Analysis** utilizando un subconju
 | Recall (Fraude) | 0.24 |
 | F1-score | 0.35 |
 
-El modelo logró una precision alta:
+El modelo logró una precision alta: **65% de las alertas eran realmente fraude**
 
-> **65% de las alertas eran realmente fraude**
-
-Sin embargo:
-
-solo detectó:
-
-> **24% de los fraudes reales**
+Sin embargo solo detectó: **24% de los fraudes reales**
 
 ---
 
@@ -1034,9 +1015,7 @@ Indica mejor capacidad global de separación entre clases.
 
 ### Mejor recall (0.75)
 
-Detecta aproximadamente:
-
-> **75% de los fraudes reales**
+Detecta aproximadamente **75% de los fraudes reales**
 
 reduciendo pérdidas potenciales.
 
@@ -1064,24 +1043,22 @@ Se evaluó el impacto de distintos umbrales de clasificación sobre precision y 
 | 0.4 | 0.147 | 0.820 |
 | 0.5 | 0.196 | 0.747 |
 
-## Interpretación
-
 Se observa un trade-off claro:
 
 ### Threshold bajo
 
-- recall muy alto,
-- muchos falsos positivos.
+- Recall muy alto
+- Muchos falsos positivos
 
 ### Threshold alto
 
-- precision mejora,
-- recall disminuye.
+- Precision mejora
+- Recall disminuye
 
 La elección del threshold depende del objetivo de negocio:
 
-- minimizar pérdidas → priorizar recall,
-- minimizar fricción → priorizar precision.
+- Minimizar pérdidas → priorizar recall
+- Minimizar fricción → priorizar precision
 
 ---
 
@@ -1140,20 +1117,14 @@ Se reentrenó Random Forest utilizando únicamente las variables seleccionadas p
 | Recall (Fraude) | **0.73** |
 | F1-score | 0.27 |
 
-## Interpretación
-
 El desempeño se mantuvo muy similar al Random Forest original.
 
 Esto sugiere que:
 
-- se logró simplificar parcialmente el modelo,
-- sin deterioro severo del rendimiento.
+- Se logró simplificar parcialmente el modelo
+- Sin deterioro severo del rendimiento
 
 No obstante, la mejora fue marginal.
-
-### Conclusión
-
-> La selección de variables permitió reducir dimensionalidad con un impacto limitado en el rendimiento, aunque sin mejoras sustanciales respecto al baseline original.
 
 ---
 
@@ -1172,17 +1143,17 @@ No son prácticos en datasets con muchas variables como IEEE-CIS Fraud Detection
 No suele ser adecuado en fraude porque reduce la interpretabilidad y puede eliminar patrones importantes. Por eso se prefieren variables originales y modelos como XGBoost que manejan alta dimensionalidad.
 
 ---
-
+Puedes ver el modelado [en este archivo](./04_modeling_baseline.ipynb).
+---
 # 05. Comparación de Modelos y Resultados Finales
 
 ## Objetivo
 
 El objetivo de esta etapa fue comparar el desempeño de los distintos modelos entrenados para identificar cuál ofrece el mejor equilibrio entre:
 
-- capacidad predictiva,
-- detección de fraude,
-- precisión operativa,
-- y generalización.
+- Capacidad predictiva
+- Detección de fraude
+- Precisión operativa
 
 Debido al fuerte desbalanceo del problema, la comparación se centró principalmente en:
 
@@ -1191,7 +1162,7 @@ Debido al fuerte desbalanceo del problema, la comparación se centró principalm
 - **Precision de fraude**
 - **F1-score**
 
-más allá de accuracy, ya que esta métrica puede resultar engañosa en problemas altamente desbalanceados.
+Más allá de accuracy, ya que esta métrica puede resultar engañosa en problemas altamente desbalanceados.
 
 ---
 
@@ -1303,4 +1274,5 @@ El modelo fue seleccionado porque:
 En un problema de fraude detectar la mayor cantidad posible de fraudes suele ser prioritario frente a minimizar falsas alarmas.
 
 ---
-
+Puedes ver un resumen de los resultados [en este archivo](./05_model_comparison.ipynb).
+---
