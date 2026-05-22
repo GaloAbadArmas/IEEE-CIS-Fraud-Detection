@@ -1217,8 +1217,6 @@ más allá de accuracy, ya que esta métrica puede resultar engañosa en problem
 
 Se comparó la capacidad de separación entre fraude y no fraude utilizando **ROC-AUC**, una métrica especialmente útil en datasets desbalanceados.
 
-## Interpretación
-
 El mejor resultado fue obtenido por:
 
 ### **XGBoost (Full)**
@@ -1285,11 +1283,7 @@ La visualización de precision vs recall mostró claramente:
 
 # Modelo Seleccionado
 
-## Modelo recomendado
-
-Después de comparar el desempeño de todos los modelos evaluados:
-
-### **Modelo seleccionado: XGBoost (Full)**
+###  XGBoost (Full)**
 
 ### Resultados principales
 
@@ -1302,14 +1296,11 @@ Después de comparar el desempeño de todos los modelos evaluados:
 
 El modelo fue seleccionado porque:
 
-- obtuvo el **mejor ROC-AUC**,
-- alcanzó el **mayor recall de fraude**,
-- mantuvo un balance razonable entre recall y precision,
-- y mostró mejor capacidad de generalización.
+- Obtuvo el **mejor ROC-AUC**
+- Alcanzó el **mayor recall de fraude**
+- Mantuvo un balance razonable entre recall y precision
 
-En un problema de fraude financiero:
-
-> **detectar la mayor cantidad posible de fraudes suele ser prioritario frente a minimizar falsas alarmas**.
+En un problema de fraude detectar la mayor cantidad posible de fraudes suele ser prioritario frente a minimizar falsas alarmas.
 
 ---
 
