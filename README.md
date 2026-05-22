@@ -1,6 +1,6 @@
 # IEEE-CIS Fraud Detection
 
-Proyecto de **Machine Learning para detección de fraude financiero**, desarrollado sobre el dataset **IEEE-CIS Fraud Detection**. El objetivo es construir modelos capaces de identificar transacciones fraudulentas minimizando pérdidas económicas y reduciendo falsos negativos.
+Proyecto de detección de fraude financiero, desarrollado sobre el dataset **IEEE-CIS Fraud Detection**. El objetivo es construir modelos capaces de identificar transacciones fraudulentas minimizando pérdidas económicas y reduciendo falsos negativos.
 
 ---
 
