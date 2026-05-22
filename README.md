@@ -196,7 +196,7 @@ Se detectaron inconsistencias en nombres de columnas entre train y test (`id_01`
 
 
 ---
-Puedes ver el data understandig [en este archivo](./01_data_understanding.ipynb).
+Puedes ver el data understandig [en este archivo](notebooks/01_data_understanding.ipynb).
 ---
 
 # Tech Stack
