@@ -1,10 +1,10 @@
 # IEEE-CIS Fraud Detection
 
-Proyecto de detección de fraude financiero, desarrollado sobre el dataset **IEEE-CIS Fraud Detection**. El objetivo es construir modelos capaces de identificar transacciones fraudulentas minimizando pérdidas económicas y reduciendo falsos negativos.
+Proyecto de detección de fraude en transacciones electrónicas, desarrollado sobre el dataset **IEEE-CIS Fraud Detection**. El objetivo es construir modelos capaces de identificar transacciones fraudulentas minimizando pérdidas económicas y reduciendo falsos negativos.
 
 ---
 
-# Project Overview
+# Descripción general del proyecto
 
 La detección de fraude representa un problema altamente desafiante debido al **desbalanceo extremo de clases**, la alta dimensionalidad y la presencia de grandes cantidades de datos faltantes.
 
@@ -57,7 +57,7 @@ Durante esta etapa se analizaron:
 
 El dataset contiene información **transaccional** y de **identidad digital**. Muchas variables se encuentran anonimizadas por motivos de privacidad.
 
-### Transaction Table
+### Variables
 
 | Variable | Descripción |
 |----------|-------------|
@@ -198,6 +198,7 @@ Se detectaron inconsistencias en nombres de columnas entre train y test (`id_01`
 ---
 Puedes ver el data understandig [en este archivo](./01_data_understanding.ipynb).
 ---
+
 # Tech Stack
 
 - Python
