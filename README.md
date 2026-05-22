@@ -435,7 +435,7 @@ Sin embargo, múltiples variables `Vxxx` presentan correlaciones moderadamente a
 El análisis exploratorio permitió identificar patrones relevantes asociados al fraude. Variables como `ProductCD`, `card4`, dominios de correo electrónico y atributos temporales mostraron diferencias entre transacciones legítimas y fraudulentas. Asimismo, la ausencia de información del dispositivo emergió como una posible señal predictiva. Estos hallazgos respaldan la necesidad de un pipeline de feature engineering orientado a capturar relaciones temporales, categóricas y comportamentales para mejorar el desempeño de los modelos de detección de fraude.
 
 ---
-Puedes ver el análisis técnico detallado [en este archivo](./02_eda_fraud_detection.ipynb).
+Puedes ver el análisis técnico detallado [en este archivo](notebooks/02_eda_fraud_detection.ipynb).
 ---
 
 # 03. Preprocesamiento de Datos
@@ -730,7 +730,7 @@ La codificación permitió convertir variables categóricas en un formato compat
 La etapa de preprocesamiento permitió transformar un dataset complejo y altamente incompleto en un conjunto de datos consistente y apto para Machine Learning. Se eliminaron variables con baja utilidad, se preservó la señal de missing values, se aplicaron estrategias diferenciadas de codificación categórica y se implementó una validación temporal para evitar leakage. Como resultado, se obtuvo un dataset limpio, sin valores faltantes y listo para modelado predictivo.
 
 ---
-Puedes ver el procesamiento de datos [en este archivo](./03_preprocessing.ipynb).
+Puedes ver el procesamiento de datos [en este archivo](notebooks/03_preprocessing.ipynb).
 ---
 
 # 04. Modelado
@@ -1144,7 +1144,7 @@ No son prácticos en datasets con muchas variables como IEEE-CIS Fraud Detection
 No suele ser adecuado en fraude porque reduce la interpretabilidad y puede eliminar patrones importantes. Por eso se prefieren variables originales y modelos como XGBoost que manejan alta dimensionalidad.
 
 ---
-Puedes ver el modelado [en este archivo](./04_modeling_baseline.ipynb).
+Puedes ver el modelado [en este archivo](notebooks/04_modeling_baseline.ipynb).
 ---
 # 05. Comparación de Modelos y Resultados Finales
 
@@ -1275,5 +1275,5 @@ El modelo fue seleccionado porque:
 En un problema de fraude detectar la mayor cantidad posible de fraudes suele ser prioritario frente a minimizar falsas alarmas.
 
 ---
-Puedes ver un resumen de los resultados [en este archivo](./05_model_comparison.ipynb).
+Puedes ver un resumen de los resultados [en este archivo](notebooks/05_model_comparison.ipynb).
 ---
