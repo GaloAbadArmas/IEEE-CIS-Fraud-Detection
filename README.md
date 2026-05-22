@@ -159,7 +159,7 @@ Por esta razón, el proyecto prioriza métricas como:
 - F1-score
 - ROC-AUC
 
-especialmente sobre la clase minoritaria (*fraude*).
+Especialmente sobre la clase minoritaria (*fraude*).
 
 
 ---
